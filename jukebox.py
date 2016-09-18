@@ -24,7 +24,6 @@ def download( record_url ):
     }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([record_url])
-    print(fname)
     return fname
 
 # Fica a ler do fifo o URL das musicas 
@@ -32,7 +31,6 @@ def download( record_url ):
 def readFromFifo():
     while True:
         request = pipein.readline()
-        input('-> ' + request)
         if request.split(' ', 1)[0] == 'add':
            record = request.split(' ', 1)[1]
            record_name = download(record)
@@ -45,7 +43,6 @@ def playList():
     while True:
         record_name = q.get()
         if os.fork() == 0:
-            print('playing ' + record_name)
             os.execlp('mplayer', 'mplayer', 'records/' + record_name + '.mp3')
             os._exit(1)
         else:
