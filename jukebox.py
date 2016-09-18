@@ -1,6 +1,13 @@
 import threading, os, time, sys, youtube_dl
 from queue import Queue
 
+#remove o fifo anterior se exisitir
+def rmOldFifo():
+    try:
+        os.remove(pipe_name)
+    except OSError:
+        pass
+
 # Faz o download do URL e devolve o nome do ficheiro
 def download( record_url ):
     fname = ''
@@ -51,6 +58,7 @@ def playList():
 q = Queue()
 pipe_name = 'records_holder'
 os.makedirs( 'records', 666, True)
+rmOldFifo()
 os.mkfifo(pipe_name)
 pipein = open(pipe_name, 'r')
 reader = threading.Thread(target = readFromFifo)
