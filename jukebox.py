@@ -16,6 +16,7 @@ def download( record_url ):
     ydl_opts = {
         'outtmpl': 'records/' + fname + '.mp3',
         'format': 'bestaudio/best',
+        'verbose': True,
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
