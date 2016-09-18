@@ -1,0 +1,32 @@
+
+form {
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    border: 1px solid red;
+}
+
+form label {
+    margin-top: 40%;
+    font-family: 'Amatic SC', cursive;
+    color: #eee;
+    font-size: 100px;
+}
+
+form input.search-text {
+    font-size: 100%;
+    margin-left: 5% ;
+    margin-top: 0;
+    color: #8D8D8D;
+    background-color: #eee;
+    height: 70px;
+    width: 60%;
+    border: none;
+}
+
+body {
+    background-color:#282828
+
+}
+
