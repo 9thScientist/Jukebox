@@ -25,32 +25,13 @@
 
 <div id="list2" style="margin-left:auto;margin-right:auto;">
    <ol>
+       {% for youtube in youtube_queue %}
        <li><p><em>
-                   TMUC - Voar - Tágides (HD 720p)
+            <a href="{{ youtube.url }}">{{ youtube.title }}</a></li>
        </em></p></li>
-       <li><p><em>
-                   TMUC - Balada - Tágides (HD 720p)
-       </em></p></li>
-       <li><p><em>
-                   TMUC - Balada de Despedida 2007 -Tágides (HD 720p)
 
-       </em></p></li>
-       <li><p><em>
-                   Tuna Universitária do Minho - Tunalmente Molhado
+       {% endfor %}
 
-       </em></p></li>
-       <li><p><em>
-                   nTUNiA - Senhora do Mar (Tágides 2010)
-
-       </em></p></li>
-       <li><p><em>
-                   iBalada de Coimbra - Carlos Paredes
-
-       </em></p></li>
-       <li><p><em>
-                   Coimbra tens mais encanto- Fernando Machado Soares
-
-       </em></p></li>
    </ol>
 </div>
     
