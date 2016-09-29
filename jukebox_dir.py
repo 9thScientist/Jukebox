@@ -83,20 +83,25 @@ def play_dir(path):
         logger.debug("Removed {}".format(next))
         os.remove(next)
 
-mpv = lambda file: os.system("/usr/bin/mpv {}".format(file))
+mpv = lambda file: os.system("/usr/bin/mpv {} --no-video".format(file))
+mpg123 = lambda file: os.system("/usr/bin/mpg123 {}".format(file))
 
 def play_file(path):
 
     props = read_properties_file(path)
 
     if 'cache' in props:
-        file = props['cache']
-    elif 'file' in props:
-        file = props['file']
-    elif 'youtube' in props:
-        file = props['youtube']
+        f = props['cache']
+        mpg123(f)
 
-    mpv(file)
+    elif 'file' in props:
+        f = props['file']
+        mpv(f)
+
+    elif 'youtube' in props:
+        yt_link = props['youtube']
+        mpv(yt_link)
+
 
 
 def main():
