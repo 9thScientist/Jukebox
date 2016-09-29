@@ -44,7 +44,7 @@ def playList():
     while True:
         record_name = q.get()
         if os.fork() == 0:
-            os.execlp('mplayer', 'mplayer', 'records/' + record_name + '.mp3')
+            os.execlp('mpv', 'mpv', 'records/' + record_name + '.mp3')
             os._exit(1)
         else:
             os.wait()
@@ -56,12 +56,12 @@ os.makedirs( 'records', 666, True)
 rmOldFifo()
 os.mkfifo(pipe_name)
 pipein = open(pipe_name, 'r')
-#reader = threading.Thread(target = readFromFifo)
-#reader.daemon = True
-#reader.start()
-player = threading.Thread(target = playList) 
-player.daemon = True
-player.start()
+reader = threading.Thread(target = readFromFifo)
+reader.daemon = True
+reader.start()
+#player = threading.Thread(target = playList) 
+#player.daemon = True
+#player.start()
 
-readFromFifo()
-q.join()
+#readFromFifo()
+playList()

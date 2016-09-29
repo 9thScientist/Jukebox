@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os, sys
 
 pipe_name = 'records_holder'
