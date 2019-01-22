@@ -14,7 +14,7 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-        attrib = "youtube={}".format(request.form['song'])
+        attrib = "youtube={}\n".format(request.form['song'])
         filename = os.path.join(dir, id_generator())
         
         with open(filename, 'w') as f:

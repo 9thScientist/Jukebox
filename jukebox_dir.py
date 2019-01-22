@@ -4,6 +4,7 @@ import logging
 import configparser
 import itertools
 import shutil
+import time
 
 mpv = lambda file: os.system("/usr/bin/mpv {} --no-video".format(file))
 mpg123 = lambda file: os.system("/usr/bin/mpg123 {}".format(file))
@@ -49,7 +50,9 @@ def play_dir(path):
         os.remove(music)
 
 def main():
-    play_dir(sys.argv[1])
+    while 1:
+        play_dir(sys.argv[1])
+        time.sleep(10)
 
 if __name__ == "__main__":
     main()
